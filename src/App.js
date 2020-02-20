@@ -1,24 +1,26 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+
+import youtube from "./api_youtube/youtube";
+
+async function testGet() {
+  let data = await youtube.get('search', {
+    params: {
+      part: "snippet",
+      maxResults: 10,
+      key: "AIzaSyCQrRehtFg5FhO6Hq6I-yJGKmfhi20enww",
+      q: "love",
+    }
+
+  });
+  console.log(data);
+}
 
 function App() {
+
+  testGet();
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      youtube
     </div>
   );
 }
