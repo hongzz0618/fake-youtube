@@ -1,0 +1,25 @@
+body {
+    margin: 0 auto;
+}
+
+.MainbackgroundImage {
+    background-image: url("https://www.eneragen.org/wp-content/uploads/2017/03/fondo-gris.gif");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.SearchContainer {
+    padding: 2px 4px;
+    display: flex;
+    width: 700px;
+    margin-top: 10px;
+}
+
+.inputSearch {
+    flex: 1px;
+    margin-left: 10px;
+}
+
+.iconButtonSearch {
+    padding: 10px;
+}

@@ -24,7 +24,7 @@ const useStyles = makeStyles(theme => ({
     }
 
 }));
-export default function Videos(props) {
+export default function MainVideos(props) {
     const classes = useStyles();
     const [expanded, setExpanded] = React.useState(false);
 
@@ -80,6 +80,6 @@ export default function Videos(props) {
     );
 }
 
-Videos.propTypes = {
+MainVideos.propTypes = {
     video: PropTypes.object,
 };

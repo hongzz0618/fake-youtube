@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 
 import youtube from "./api_youtube/youtube";
-// import SearchBar from "./Component/SearchBar";
-import Videos from "./Component/Videos";
 
-import { Grid, Container } from '@material-ui/core';
+import SearchBar from "./Component/SearchBar";
+import MainVideos from "./Component/mainVideos";
+
+import { Grid, Container, Typography } from '@material-ui/core';
 
 class App extends Component {
   constructor(props) {
@@ -13,36 +14,37 @@ class App extends Component {
       videos: [], selectedVideo: null
 
     }
+    this.GetYoutubeInfo = this.GetYoutubeInfo.bind(this)
   }
 
   componentDidMount() {
-    this.GetYoutubeInfo();
+    this.GetYoutubeInfo("react");
   }
 
-  async GetYoutubeInfo() {
+  async GetYoutubeInfo(searchTerm) {
     let getData = await youtube.get('search', {
       params: {
         part: "snippet",
-        maxResults: 50,
-        key: "AIzaSyCQrRehtFg5FhO6Hq6I-yJGKmfhi20enww",
-        q: "star",
+        key: "AIzaSyBa7tw3jxWIvVzslzLcRrOd2jIAAGfOlkw",
+        q: searchTerm,
       }
 
     });
-    console.log(getData)
     this.setState({ videos: getData.data.items })
-
   }
 
   render() {
     const { videos } = this.state
     return (
       <>
-        <Container maxWidth="xl">
-          {/* <SearchBar /> */}
+        <Grid container justify="center" alignItems="center">
+          <SearchBar Submit={this.GetYoutubeInfo} />
+        </Grid>
+        <Container maxWidth="xl" className="MainbackgroundImage">
+          <Typography variant="h5" component="h2" style={{ marginTop: 20, paddingTop: 30, marginBottom: 20 }}><strong>Recomendados</strong></Typography>
           <Grid container spacing={4}>
             {videos.map((video, index) => (
-              <Videos key={index} video={video} />
+              <MainVideos key={index} video={video} />
             ))}
           </Grid>
         </Container>
