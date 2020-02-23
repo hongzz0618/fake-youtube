@@ -23,3 +23,20 @@ body {
     background-size: cover;
     max-width: 100px;
 }
+
+.videoIframe {
+    height: 500px;
+}
+
+.paperIframe {
+    padding: 15px;
+}
+
+@media only screen and (max-width: 500px) {
+    .videoIframe {
+        max-height: 200px;
+    }
+    .textIframe {
+        font-size: 8px !important;
+    }
+}

@@ -5,8 +5,8 @@ import { Paper, Typography } from "@material-ui/core";
 export default function BigVideo(props) {
   const videoSrc = `https://www.youtube.com/embed/${props.video.id.videoId}`;
   return (
-    <div style={{ height: 630 }}>
-      <Paper elevation={6} style={{ height: "70%" }}>
+    <div >
+      <Paper elevation={6} className="videoIframe">
         <iframe
           frameBorder="0"
           height="100%"
@@ -15,8 +15,8 @@ export default function BigVideo(props) {
           src={videoSrc}
         />
       </Paper>
-      <Paper elevation={6} style={{ padding: "15px" }}>
-        <Typography variant="h5">
+      <Paper elevation={6} className="paperIframe">
+        <Typography variant="h5" className="textIframe">
           {props.video.snippet.title} - {props.video.snippet.channelTitle}
         </Typography>
         <Typography variant="subtitle1">
