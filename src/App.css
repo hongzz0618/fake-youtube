@@ -36,6 +36,10 @@ body {
     color: red !important;
 }
 
+.blueShare {
+    color: rgb(0, 162, 255) !important;
+}
+
 @media only screen and (max-width: 500px) {
     .videoIframe {
         max-height: 200px;

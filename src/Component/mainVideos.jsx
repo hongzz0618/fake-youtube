@@ -28,6 +28,8 @@ export default function MainVideos(props) {
     const classes = useStyles();
     const [expanded, setExpanded] = React.useState(false);
     const [likeStyle, setLikeStyle] = React.useState("");
+    const [shareStyle, setShareStyle] = React.useState("");
+
     const { video } = props;
 
     const handleExpandClick = () => {
@@ -35,6 +37,9 @@ export default function MainVideos(props) {
     };
     const handleChangeRed = () => {
         setLikeStyle("redLike");
+    };
+    const handleChangeBlue = () => {
+        setShareStyle("blueShare");
     };
     return (
         <Grid item xs={12} sm={6} md={4} lg={3} xl={2} className="videoContainer">
@@ -52,7 +57,7 @@ export default function MainVideos(props) {
                         <IconButton aria-label="add to favorites" className={likeStyle} onClick={handleChangeRed}>
                             <FavoriteIcon />
                         </IconButton>
-                        <IconButton aria-label="share">
+                        <IconButton aria-label="share" className={shareStyle} onClick={handleChangeBlue}>
                             <ShareIcon />
                         </IconButton>
                         <IconButton
