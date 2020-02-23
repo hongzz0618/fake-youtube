@@ -42,6 +42,7 @@ export default function MainVideos(props) {
         setShareStyle("blueShare");
     };
     return (
+        // className="videoContainer xs-12 sm-6 md-4 lg-3 xl-2" probar
         <Grid item xs={12} sm={6} md={4} lg={3} xl={2} className="videoContainer">
             <CardActionArea >
                 <Card>

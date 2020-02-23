@@ -1,0 +1,11 @@
+$mainBackgroundColor: hsla(0, 0%, 93.3%, 0.4);
+$blueColor: rgb(59, 183, 255);
+$redColor: rgb(255, 34, 34);
+$whiteColor: rgb(255, 255, 255);
+$tenPx: 10px;
+
+@mixin flexCenter {
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}

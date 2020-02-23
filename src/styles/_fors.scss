@@ -1,0 +1,55 @@
+$responsive: (
+  xl1: 1717px,
+  xl: 1374px,
+  lg: 1145px,
+  md: 888px,
+  sm: 600px,
+  xs: 512px
+);
+
+@media screen and (min-width: map-get($responsive, xs )) {
+  @for $var from 1 through 12 {
+    .xs-#{$var*1} {
+      width: $var * 8.333333333333333%;
+    }
+  }
+}
+
+@media screen and (min-width: map-get($responsive, sm )) {
+  @for $var from 1 through 12 {
+    .sm-#{$var*1} {
+      width: $var * 8.333333333333333%;
+    }
+  }
+}
+
+@media screen and (min-width: map-get($responsive, md )) {
+  @for $var from 1 through 12 {
+    .md-#{$var*1} {
+      width: $var * 8.333333333333333%;
+    }
+  }
+}
+
+@media screen and (min-width: map-get($responsive, lg )) {
+  @for $var from 1 through 12 {
+    .lg-#{$var*1} {
+      width: $var * 8.333333333333333%;
+    }
+  }
+}
+@media screen and (min-width: map-get($responsive, xl )) {
+  @for $var from 1 through 12 {
+    .xl-#{$var*1} {
+      width: $var * 8.333333333333333%;
+    }
+  }
+}
+
+@media screen and (min-width: map-get($responsive, xl1 )) {
+  @for $var from 1 through 12 {
+    .xl1-#{$var*1} {
+      width: $var * 8.333333333333333%;
+    }
+  }
+}

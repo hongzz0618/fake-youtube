@@ -1,0 +1,68 @@
+@import "./variable";
+
+body {
+  margin: 0 auto;
+  background-color: $mainBackgroundColor;
+  .SearchContainer {
+    padding: 2px 4px;
+    display: flex;
+    width: 700px;
+    margin-top: $tenPx;
+  }
+
+  .inputSearch {
+    flex: 1px;
+    margin-left: $tenPx;
+  }
+
+  .iconButtonSearch {
+    padding: $tenPx;
+  }
+
+  .logo {
+    background-size: cover;
+    max-width: 100px;
+  }
+
+  .videoIframe {
+    height: 500px;
+  }
+
+  .paperIframe {
+    padding: 15px;
+  }
+
+  .redLike {
+    color: $redColor !important;
+  }
+
+  .blueShare {
+    color: $blueColor !important;
+  }
+
+  .searchBar {
+    @include flexCenter();
+    margin-bottom: $tenPx;
+    position: fixed;
+    z-index: 100;
+    width: 100%;
+    top: 0;
+    background-color: $whiteColor;
+    padding-bottom: $tenPx;
+  }
+  .mainContainer {
+    margin-top: 80px;
+    padding-top: 30px;
+  }
+
+  @media only screen and (max-width: 500px) {
+    .videoIframe {
+      max-height: 200px;
+    }
+    .textIframe {
+      font-size: 8px !important;
+    }
+  }
+}
+
+@import "./fors";

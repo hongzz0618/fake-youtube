@@ -36,7 +36,7 @@ class App extends Component {
       params: {
         part: "snippet",
         key: "AIzaSyDE8jP6RZ9KeUCpkRNLe5jV8iZYANGKzfU",
-        maxResults: 20,
+        maxResults: 10,
         q: searchTerm,
       }
 
@@ -53,15 +53,16 @@ class App extends Component {
     let noSearched = timesSearched < 2;
     let noClicked = timeClicked < 1;
     let tituloPrincipal = "Recomendados";
-    let tituloBuscado = "FILTRAR"
+    let tituloBuscado = "FILTRAR";
+
     return (
       <>
 
-        <Grid container justify="center" alignItems="center" style={{ marginBottom: 10, position: "fixed", zIndex: 100, width: "100%", top: 0, backgroundColor: "white", paddingBottom: 10 }}>
+        <Grid container className="searchBar">
           <SearchBar Submit={this.GetYoutubeInfo} />
         </Grid>
 
-        <Container maxWidth="xl" style={{ marginTop: 80, paddingTop: 30, }}>
+        <Container maxWidth="xl" className="mainContainer">
 
           {noClicked ? noSearched ? <Typography variant="h5" component="h2" style={{ marginBottom: 20 }}>
             <strong>{tituloPrincipal}</strong></Typography>
