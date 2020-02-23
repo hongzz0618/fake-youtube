@@ -1,8 +1,5 @@
 body {
     margin: 0 auto;
-}
-
-.MainbackgroundImage {
     background-image: url("https://www.eneragen.org/wp-content/uploads/2017/03/fondo-gris.gif");
     background-repeat: no-repeat;
     background-size: cover;

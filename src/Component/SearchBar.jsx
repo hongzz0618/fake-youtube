@@ -15,7 +15,7 @@ class SearchBar extends Component {
     }
 
     onKeyPress = (event) => {
-        if (event.key === "Enter") {
+        if (event.key === "Enter" && this.state.searchTerm !== "") {
             this.props.Submit(this.state.searchTerm);
         }
     }
@@ -35,8 +35,8 @@ class SearchBar extends Component {
                     onChange={this.handleChange}
                     onKeyPress={this.onKeyPress}
                 />
-                <IconButton className="iconButtonSearch" aria-label="search">
-                    <SearchIcon onClick={this.clickEnter} />
+                <IconButton className="iconButtonSearch" aria-label="search" onClick={this.clickEnter}>
+                    <SearchIcon />
                 </IconButton>
             </Paper>
         );
