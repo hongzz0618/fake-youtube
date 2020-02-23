@@ -21,7 +21,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      videos: [], selectedVideo: null, timesSearched: 0, loading: true
+      videos: [], selectedVideo: null, timesSearched: 0, loading: true, timeClicked: 0
 
     }
     this.GetYoutubeInfo = this.GetYoutubeInfo.bind(this)
@@ -35,19 +35,23 @@ class App extends Component {
     let getData = await youtube.get('search', {
       params: {
         part: "snippet",
-        key: "AIzaSyCg7BfwhJLk-wd_NnUUbYOSTAC0kDhszIM",
-        maxResults: 20,
+        key: "AIzaSyDE8jP6RZ9KeUCpkRNLe5jV8iZYANGKzfU",
+        // maxResults: 20,
         q: searchTerm,
       }
 
     });
-    this.setState({ videos: getData.data.items, timesSearched: this.state.timesSearched + 1, selectedVideo: getData.data.items[0] })
+    this.setState({ videos: getData.data.items, timesSearched: this.state.timesSearched + 1, selectedVideo: getData.data.items[0], timeClicked: 0 })
   }
 
+  ClickSearchInfo = (data) => {
+    this.setState({ selectedVideo: data, timeClicked: this.state.timeClicked + 1 })
+  }
   render() {
-    const { videos, timesSearched, selectedVideo } = this.state
+    const { videos, timesSearched, selectedVideo, timeClicked } = this.state
     let noData = videos.length < 1;
     let noSearched = timesSearched < 2;
+    let noClicked = timeClicked < 1;
     let tituloPrincipal = "Recomendados";
     let tituloBuscado = "FILTRAR"
     return (
@@ -58,20 +62,23 @@ class App extends Component {
         </Grid>
 
         <Container maxWidth="xl" style={{ marginTop: 80, paddingTop: 30, }}>
-          {videos.length > 1 ? <ViewVideo video={selectedVideo} videos={videos} /> : null}
+
+          {noClicked ? noSearched ? <Typography variant="h5" component="h2" style={{ marginBottom: 20 }}>
+            <strong>{tituloPrincipal}</strong></Typography>
+            : <div style={{ marginBottom: 20, display: "inline-flex", color: "gray" }}>
+              <TocIcon style={{ paddingRight: 5, paddingTop: 4 }} />
+              <Typography variant="h6" component="h2"><strong>{tituloBuscado}</strong></Typography></div> : null}
+
           {noData ? <ClipLoader css={override} size={150} color={"red"} loading={this.state.loading} /> :
-            noSearched ? <Typography variant="h5" component="h2" style={{ marginBottom: 20 }}>
-              <strong>{tituloPrincipal}</strong></Typography>
-              : <div style={{ marginBottom: 20, display: "inline-flex", color: "gray" }}>
-                <TocIcon style={{ paddingRight: 5, paddingTop: 4 }} />
-                <Typography variant="h6" component="h2"><strong>{tituloBuscado}</strong></Typography></div>}
-          < Grid container spacing={4}>
-            {noSearched ? videos.map((video, index) => (
-              <MainVideos key={index} video={video} />
-            )) : videos.map((video, index) => (
-              <SearchVideos key={index} video={video} />
-            ))}
-          </Grid>
+            !noClicked ? <ViewVideo video={selectedVideo} videos={videos} onVideoSelect={this.ClickSearchInfo} /> :
+              < Grid container spacing={4}>
+                {noSearched ? videos.map((video, index) => (
+                  <MainVideos key={index} video={video} onVideoSelect={this.ClickSearchInfo} />
+                )) : videos.map((video, index) => (
+                  <SearchVideos key={index} video={video} onVideoSelect={this.ClickSearchInfo} />
+                ))}
+              </Grid>}
+
         </Container>
 
       </>

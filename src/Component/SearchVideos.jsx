@@ -28,7 +28,7 @@ export default function SearchVideos(props) {
     return (
         <Grid item xs={12} lg={10}>
             <CardActionArea>
-                <Card className={classes.card}>
+                <Card className={classes.card} onClick={() => props.onVideoSelect(video)}>
                     <Hidden xsDown>
                         <CardMedia className={classes.cardMedia} image={video.snippet.thumbnails.medium.url} title={video.snippet.title} />
                     </Hidden>

@@ -35,14 +35,16 @@ export default function MainVideos(props) {
     };
     return (
         <Grid item xs={12} sm={6} md={4} lg={3} xl={2} className="videoContainer">
-            <CardActionArea>
+            <CardActionArea >
                 <Card>
-                    <CardMedia className={classes.media} image={video.snippet.thumbnails.medium.url} alt={video.snippet.title} />
-                    <CardContent style={{ paddingBottom: 0 }}>
-                        <Typography variant="body2" color="textSecondary" component="p">
-                            {video.snippet.channelTitle}
-                        </Typography>
-                    </CardContent>
+                    <div onClick={() => props.onVideoSelect(video)} >
+                        <CardMedia className={classes.media} image={video.snippet.thumbnails.medium.url} alt={video.snippet.title} />
+                        <CardContent style={{ paddingBottom: 0 }}>
+                            <Typography variant="body2" color="textSecondary" component="p">
+                                {video.snippet.channelTitle}
+                            </Typography>
+                        </CardContent>
+                    </div>
                     <CardActions disableSpacing>
                         <IconButton aria-label="add to favorites">
                             <FavoriteIcon />

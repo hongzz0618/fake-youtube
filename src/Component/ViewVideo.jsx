@@ -12,7 +12,7 @@ export default function ViewVideo(props) {
                 <BigVideo video={props.video} />
             </Grid>
             <Grid item xs={12} md={4}>
-                <VideoList videos={props.videos} onVideoSelect={props.setSelectedVideo} />
+                <VideoList videos={props.videos} onVideoSelect={props.onVideoSelect} />
             </Grid>
 
         </Grid>
