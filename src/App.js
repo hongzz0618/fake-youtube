@@ -58,7 +58,7 @@ class App extends Component {
         </Grid>
 
         <Container maxWidth="xl" style={{ marginTop: 80, paddingTop: 30, }}>
-          {videos.length > 1 ? <ViewVideo video={selectedVideo} /> : null}
+          {videos.length > 1 ? <ViewVideo video={selectedVideo} videos={videos} /> : null}
           {noData ? <ClipLoader css={override} size={150} color={"red"} loading={this.state.loading} /> :
             noSearched ? <Typography variant="h5" component="h2" style={{ marginBottom: 20 }}>
               <strong>{tituloPrincipal}</strong></Typography>

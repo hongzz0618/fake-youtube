@@ -38,7 +38,7 @@ export default function MainVideos(props) {
             <CardActionArea>
                 <Card>
                     <CardMedia className={classes.media} image={video.snippet.thumbnails.medium.url} alt={video.snippet.title} />
-                    <CardContent>
+                    <CardContent style={{ paddingBottom: 0 }}>
                         <Typography variant="body2" color="textSecondary" component="p">
                             {video.snippet.channelTitle}
                         </Typography>
