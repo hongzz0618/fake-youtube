@@ -20,7 +20,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    this.GetYoutubeInfo("react");
+    this.GetYoutubeInfo();
   }
 
   async GetYoutubeInfo(searchTerm) {
@@ -28,7 +28,7 @@ class App extends Component {
       params: {
         part: "snippet",
         key: "AIzaSyCg7BfwhJLk-wd_NnUUbYOSTAC0kDhszIM",
-        maxResults: 50,
+        maxResults: 20,
         q: searchTerm,
       }
 

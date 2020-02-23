@@ -1,8 +1,6 @@
 body {
     margin: 0 auto;
-    background-image: url("https://www.eneragen.org/wp-content/uploads/2017/03/fondo-gris.gif");
-    background-repeat: no-repeat;
-    background-size: cover;
+    background-color: hsla(0, 0%, 93.3%, 0.4);
 }
 
 .SearchContainer {
@@ -19,4 +17,9 @@ body {
 
 .iconButtonSearch {
     padding: 10px;
+}
+
+.logo {
+    background-size: cover;
+    max-width: 100px;
 }

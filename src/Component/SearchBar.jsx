@@ -3,6 +3,7 @@ import Paper from '@material-ui/core/Paper';
 import InputBase from '@material-ui/core/InputBase';
 import IconButton from '@material-ui/core/IconButton';
 import SearchIcon from '@material-ui/icons/Search';
+import logo from '../img/Logo-YouTube.jpg';
 class SearchBar extends Component {
     constructor(props) {
         super(props);
@@ -28,6 +29,7 @@ class SearchBar extends Component {
     render() {
         return (
             <Paper className="SearchContainer">
+                <a href="http://localhost:3000/"><img src={logo} alt="logoYoutube" className="logo" /></a>
                 <InputBase
                     value={this.state.searchTerm}
                     className="inputSearch"
