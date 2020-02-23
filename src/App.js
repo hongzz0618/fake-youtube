@@ -5,6 +5,8 @@ import youtube from "./api_youtube/youtube";
 import SearchBar from "./Component/SearchBar";
 import MainVideos from "./Component/mainVideos";
 import SearchVideos from "./Component/SearchVideos";
+import ViewVideo from "./Component/ViewVideo";
+
 import TocIcon from '@material-ui/icons/Toc';
 import { Grid, Container, Typography } from '@material-ui/core';
 import { css } from "@emotion/core";
@@ -39,26 +41,28 @@ class App extends Component {
       }
 
     });
-    this.setState({ videos: getData.data.items, timesSearched: this.state.timesSearched + 1 })
+    this.setState({ videos: getData.data.items, timesSearched: this.state.timesSearched + 1, selectedVideo: getData.data.items[0] })
   }
 
   render() {
-    const { videos, timesSearched } = this.state
+    const { videos, timesSearched, selectedVideo } = this.state
     let noData = videos.length < 1;
     let noSearched = timesSearched < 2;
     let tituloPrincipal = "Recomendados";
     let tituloBuscado = "FILTRAR"
     return (
       <>
-        <Grid container justify="center" alignItems="center" style={{ marginBottom: 20, position: "fixed", zIndex: 100, width: "100%", top: 0, backgroundColor: "white", paddingBottom: 20 }}>
+
+        <Grid container justify="center" alignItems="center" style={{ marginBottom: 10, position: "fixed", zIndex: 100, width: "100%", top: 0, backgroundColor: "white", paddingBottom: 10 }}>
           <SearchBar Submit={this.GetYoutubeInfo} />
         </Grid>
 
-        <Container maxWidth="xl">
+        <Container maxWidth="xl" style={{ marginTop: 80, paddingTop: 30, }}>
+          {videos.length > 1 ? <ViewVideo video={selectedVideo} /> : null}
           {noData ? <ClipLoader css={override} size={150} color={"red"} loading={this.state.loading} /> :
-            noSearched ? <Typography variant="h5" component="h2" style={{ marginTop: 80, paddingTop: 30, marginBottom: 20 }}>
+            noSearched ? <Typography variant="h5" component="h2" style={{ marginBottom: 20 }}>
               <strong>{tituloPrincipal}</strong></Typography>
-              : <div style={{ marginTop: 100, spaddingTop: 30, marginBottom: 20, display: "inline-flex", color: "gray" }}>
+              : <div style={{ marginBottom: 20, display: "inline-flex", color: "gray" }}>
                 <TocIcon style={{ paddingRight: 5, paddingTop: 4 }} />
                 <Typography variant="h6" component="h2"><strong>{tituloBuscado}</strong></Typography></div>}
           < Grid container spacing={4}>
