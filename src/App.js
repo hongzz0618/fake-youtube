@@ -6,14 +6,20 @@ import SearchBar from "./Component/SearchBar";
 import MainVideos from "./Component/mainVideos";
 import SearchVideos from "./Component/SearchVideos";
 import TocIcon from '@material-ui/icons/Toc';
-
 import { Grid, Container, Typography } from '@material-ui/core';
+import { css } from "@emotion/core";
+import { ClipLoader } from "react-spinners";
+
+const override = css`
+  display: flex;
+  margin: 120px auto;
+`;
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      videos: [], selectedVideo: null, timesSearched: 0
+      videos: [], selectedVideo: null, timesSearched: 0, loading: true
 
     }
     this.GetYoutubeInfo = this.GetYoutubeInfo.bind(this)
@@ -44,10 +50,11 @@ class App extends Component {
           <SearchBar Submit={this.GetYoutubeInfo} />
         </Grid>
         <Container maxWidth="xl">
-          {timesSearched < 2 ? <Typography variant="h5" component="h2" style={{ marginTop: 80, paddingTop: 30, marginBottom: 20 }}><strong>Recomendados</strong></Typography>
-            : <div style={{ marginTop: 100, spaddingTop: 30, marginBottom: 20, display: "inline-flex", color: "gray" }}>
-              <TocIcon style={{ paddingRight: 5, paddingTop: 4 }} />
-              <Typography variant="h6" component="h2"><strong>FILTRAR</strong></Typography></div>}
+          {videos.length < 1 ? <ClipLoader css={override} size={150} color={"red"} loading={this.state.loading} /> :
+            timesSearched < 2 ? <Typography variant="h5" component="h2" style={{ marginTop: 80, paddingTop: 30, marginBottom: 20 }}><strong>Recomendados</strong></Typography>
+              : <div style={{ marginTop: 100, spaddingTop: 30, marginBottom: 20, display: "inline-flex", color: "gray" }}>
+                <TocIcon style={{ paddingRight: 5, paddingTop: 4 }} />
+                <Typography variant="h6" component="h2"><strong>FILTRAR</strong></Typography></div>}
           < Grid container spacing={4}>
             {timesSearched < 2 ? videos.map((video, index) => (
               <MainVideos key={index} video={video} />
