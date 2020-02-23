@@ -27,11 +27,14 @@ const useStyles = makeStyles(theme => ({
 export default function MainVideos(props) {
     const classes = useStyles();
     const [expanded, setExpanded] = React.useState(false);
-
+    const [likeStyle, setLikeStyle] = React.useState("");
     const { video } = props;
 
     const handleExpandClick = () => {
         setExpanded(!expanded);
+    };
+    const handleChangeRed = () => {
+        setLikeStyle("redLike");
     };
     return (
         <Grid item xs={12} sm={6} md={4} lg={3} xl={2} className="videoContainer">
@@ -46,7 +49,7 @@ export default function MainVideos(props) {
                         </CardContent>
                     </div>
                     <CardActions disableSpacing>
-                        <IconButton aria-label="add to favorites">
+                        <IconButton aria-label="add to favorites" className={likeStyle} onClick={handleChangeRed}>
                             <FavoriteIcon />
                         </IconButton>
                         <IconButton aria-label="share">
@@ -78,7 +81,7 @@ export default function MainVideos(props) {
                     </Collapse>
                 </Card>
             </CardActionArea>
-        </Grid>
+        </Grid >
     );
 }
 

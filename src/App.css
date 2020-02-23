@@ -32,6 +32,10 @@ body {
     padding: 15px;
 }
 
+.redLike {
+    color: red !important;
+}
+
 @media only screen and (max-width: 500px) {
     .videoIframe {
         max-height: 200px;
