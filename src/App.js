@@ -44,25 +44,32 @@ class App extends Component {
 
   render() {
     const { videos, timesSearched } = this.state
+    let noData = videos.length < 1;
+    let noSearched = timesSearched < 2;
+    let tituloPrincipal = "Recomendados";
+    let tituloBuscado = "FILTRAR"
     return (
       <>
         <Grid container justify="center" alignItems="center" style={{ marginBottom: 20, position: "fixed", zIndex: 100, width: "100%", top: 0, backgroundColor: "white", paddingBottom: 20 }}>
           <SearchBar Submit={this.GetYoutubeInfo} />
         </Grid>
+
         <Container maxWidth="xl">
-          {videos.length < 1 ? <ClipLoader css={override} size={150} color={"red"} loading={this.state.loading} /> :
-            timesSearched < 2 ? <Typography variant="h5" component="h2" style={{ marginTop: 80, paddingTop: 30, marginBottom: 20 }}><strong>Recomendados</strong></Typography>
+          {noData ? <ClipLoader css={override} size={150} color={"red"} loading={this.state.loading} /> :
+            noSearched ? <Typography variant="h5" component="h2" style={{ marginTop: 80, paddingTop: 30, marginBottom: 20 }}>
+              <strong>{tituloPrincipal}</strong></Typography>
               : <div style={{ marginTop: 100, spaddingTop: 30, marginBottom: 20, display: "inline-flex", color: "gray" }}>
                 <TocIcon style={{ paddingRight: 5, paddingTop: 4 }} />
-                <Typography variant="h6" component="h2"><strong>FILTRAR</strong></Typography></div>}
+                <Typography variant="h6" component="h2"><strong>{tituloBuscado}</strong></Typography></div>}
           < Grid container spacing={4}>
-            {timesSearched < 2 ? videos.map((video, index) => (
+            {noSearched ? videos.map((video, index) => (
               <MainVideos key={index} video={video} />
             )) : videos.map((video, index) => (
               <SearchVideos key={index} video={video} />
             ))}
           </Grid>
         </Container>
+
       </>
     )
   }
