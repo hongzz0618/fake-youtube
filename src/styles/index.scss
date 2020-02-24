@@ -20,8 +20,12 @@ body {
   }
 
   .logo {
+    max-width: 163px;
+    position: absolute;
+    z-index: 1;
     background-size: cover;
-    max-width: 100px;
+    left: 0;
+    top: 0;
   }
 
   .videoIframe {
@@ -62,6 +66,12 @@ body {
     .textIframe {
       font-size: 8px !important;
     }
+  }
+}
+@media only screen and (max-width: 1280px) {
+  .logo {
+    max-width: 115px !important;
+    position: relative !important;
   }
 }
 
