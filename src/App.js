@@ -35,7 +35,7 @@ class App extends Component {
     let getData = await youtube.get('search', {
       params: {
         part: "snippet",
-        key: "AIzaSyDE8jP6RZ9KeUCpkRNLe5jV8iZYANGKzfU",
+        key: "AIzaSyC3K_5eNPQy63JgwndEimzpiiW9dD8IFlA",
         maxResults: 10,
         q: searchTerm,
       }

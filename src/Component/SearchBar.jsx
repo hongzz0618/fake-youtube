@@ -29,7 +29,7 @@ class SearchBar extends Component {
     render() {
         return (
             <Paper className="SearchContainer">
-                <a href="http://localhost:3000/"><img src={logo} alt="logoYoutube" className="logo" /></a>
+                <a href="./"><img src={logo} alt="logoYoutube" className="logo" /></a>
                 <InputBase
                     value={this.state.searchTerm}
                     className="inputSearch"
