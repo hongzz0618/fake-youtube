@@ -28,7 +28,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    this.GetYoutubeInfo("coronavirus");
+    this.GetYoutubeInfo("english");
   }
 
   async GetYoutubeInfo(searchTerm) {
