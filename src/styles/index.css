@@ -12,6 +12,18 @@ body .SearchContainer {
   margin-top: 10px;
 }
 
+body .MuiCardMedia-root,
+body img {
+  -webkit-transition: 0.9s;
+  transition: 0.9s;
+}
+
+body .MuiCardMedia-root:hover,
+body img:hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+}
+
 body .inputSearch {
   -webkit-box-flex: 1px;
       -ms-flex: 1px;

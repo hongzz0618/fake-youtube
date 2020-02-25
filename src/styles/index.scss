@@ -9,7 +9,13 @@ body {
     width: 700px;
     margin-top: $tenPx;
   }
-
+  .MuiCardMedia-root,
+  img {
+    transition: 0.9s;
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
   .inputSearch {
     flex: 1px;
     margin-left: $tenPx;
