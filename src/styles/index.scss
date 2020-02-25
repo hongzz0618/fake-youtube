@@ -20,6 +20,7 @@ body {
   }
 
   .logo {
+    max-height: 68px;
     max-width: 163px;
     position: absolute;
     z-index: 1;
@@ -59,7 +60,7 @@ body {
     padding-top: 30px;
   }
 
-  @media only screen and (max-width: 500px) {
+  @media only screen and (max-width: 512px) {
     .videoIframe {
       max-height: 200px;
     }
@@ -72,6 +73,7 @@ body {
   .logo {
     max-width: 115px !important;
     position: relative !important;
+    max-height: 40px !important;
   }
 }
 
