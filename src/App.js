@@ -28,15 +28,15 @@ class App extends Component {
   }
 
   componentDidMount() {
-    this.GetYoutubeInfo();
+    this.GetYoutubeInfo("coronavirus");
   }
 
   async GetYoutubeInfo(searchTerm) {
     let getData = await youtube.get('search', {
       params: {
         part: "snippet",
-        key: "AIzaSyC3K_5eNPQy63JgwndEimzpiiW9dD8IFlA",
-        maxResults: 10,
+        key: "AIzaSyAp9q39YoYTsRtHChxBdKA9Z_-4-8PhpL8",
+        maxResults: 30,
         q: searchTerm,
       }
 
@@ -46,6 +46,7 @@ class App extends Component {
 
   ClickSearchInfo = (data) => {
     this.setState({ selectedVideo: data, timeClicked: this.state.timeClicked + 1 })
+    window.scrollTo(0, 0);
   }
   render() {
     const { videos, timesSearched, selectedVideo, timeClicked } = this.state
