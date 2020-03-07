@@ -58,7 +58,7 @@ class Navbar extends Component {
                                     ></path>
                                 </g>
                             </svg>
-                            <span class="link-text">Cats</span>
+                            <span class="link-text">11111111</span>
                         </a>
                     </li>
 
@@ -87,7 +87,7 @@ class Navbar extends Component {
                                     ></path>
                                 </g>
                             </svg>
-                            <span class="link-text">Aliens</span>
+                            <span class="link-text">22222222</span>
                         </a>
                     </li>
 
@@ -116,7 +116,7 @@ class Navbar extends Component {
                                     ></path>
                                 </g>
                             </svg>
-                            <span class="link-text">Space</span>
+                            <span class="link-text">33333333</span>
                         </a>
                     </li>
 
@@ -145,7 +145,7 @@ class Navbar extends Component {
                                     ></path>
                                 </g>
                             </svg>
-                            <span class="link-text">Shuttle</span>
+                            <span class="link-text">44444444</span>
                         </a>
                     </li>
                 </ul>

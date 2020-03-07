@@ -133,7 +133,7 @@ body .nav-link {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  height: 5rem;
+  height: 4rem;
   color: #b6b6b6;
   text-decoration: none;
   -webkit-filter: grayscale(100%) opacity(0.7);
@@ -252,7 +252,7 @@ body .mainContainer {
     position: fixed;
     bottom: 0;
     width: 100vw;
-    height: 5rem;
+    height: 4rem;
   }
   body .navbar:hover {
     width: 100%;
