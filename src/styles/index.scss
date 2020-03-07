@@ -1,5 +1,20 @@
 @import "./variable";
 
+:root {
+  font-size: 16px;
+}
+
+body::-webkit-scrollbar {
+  width: 0.25rem;
+}
+
+body::-webkit-scrollbar-track {
+  background: #1e1e24;
+}
+
+body::-webkit-scrollbar-thumb {
+  background: $mainBackgroundColor;
+}
 body {
   margin: 0 auto;
   background-color: $mainBackgroundColor;
@@ -50,7 +65,116 @@ body {
   .blueShare {
     color: $blueColor !important;
   }
+  .navbar {
+    position: fixed;
+    background-color: $navbg-primary;
+    transition: width 600ms ease;
+    top: 0;
+    width: 5rem;
+    height: 100vh;
+    &:hover {
+      width: 16rem;
+    }
+  }
 
+  .navbar:hover .link-text {
+    display: inline;
+  }
+
+  .navbar:hover .navlogo svg {
+    margin-left: 11rem;
+    display: none;
+  }
+
+  .navbar:hover .navlogo-text {
+    left: 0px;
+  }
+
+  .navbar-nav {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+  }
+
+  .nav-item {
+    width: 100%;
+  }
+
+  .nav-item:last-child {
+    margin-top: auto;
+  }
+
+  .nav-link {
+    display: flex;
+    align-items: center;
+    height: 5rem;
+    color: $navtext-primary;
+    text-decoration: none;
+    filter: grayscale(100%) opacity(0.7);
+    transition: $navtransition-speed;
+  }
+
+  .nav-link:hover {
+    filter: grayscale(0%) opacity(1);
+    background: $navbg-secondary;
+    color: $navtext-secondary;
+  }
+
+  .link-text {
+    display: none;
+    margin-left: 1rem;
+  }
+
+  .nav-link svg {
+    width: 2rem;
+    min-width: 2rem;
+    margin: 0 1.5rem;
+  }
+
+  .fa-primary {
+    color: rgb(14, 209, 235);
+  }
+
+  .fa-secondary {
+    color: rgb(0, 110, 255);
+  }
+
+  .fa-primary,
+  .fa-secondary {
+    transition: $navtransition-speed;
+  }
+
+  .navlogo {
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    text-align: center;
+    color: $navtext-secondary;
+    background: $navbg-secondary;
+    font-size: 1.5rem;
+    letter-spacing: 0.3ch;
+    width: 100%;
+  }
+
+  .navlogo svg {
+    transform: rotate(0deg);
+    transition: $navtransition-speed;
+  }
+
+  .navlogo-text {
+    display: inline;
+    position: absolute;
+    left: -999px;
+    transition: $navtransition-speed;
+  }
+
+  .navbar:hover .navlogo svg {
+    transform: rotate(-180deg);
+  }
   .searchBar {
     @include flexCenter();
     margin-bottom: $tenPx;
@@ -67,6 +191,30 @@ body {
   }
 
   @media only screen and (max-width: 512px) {
+    .navbar {
+      bottom: 0;
+      width: 100vw;
+      height: 5rem;
+      &:hover{
+        width: 100%;
+      }
+    }
+
+    .navlogo {
+      display: none !important;
+    }
+
+    .link-text {
+      display: none !important;
+    }
+    .navbar-nav {
+      flex-direction: row;
+    }
+
+    .nav-link {
+      justify-content: center;
+    }
+
     .videoIframe {
       max-height: 200px;
     }

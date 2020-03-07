@@ -4,6 +4,14 @@ $redColor: rgb(255, 34, 34);
 $whiteColor: rgb(255, 255, 255);
 $tenPx: 10px;
 
+$navbg-primary: #23232e;
+$navbg-secondary: #141418;
+
+$navtext-primary: #b6b6b6;
+$navtext-secondary: #ececec;
+
+$navtransition-speed: 600ms;
+
 @mixin flexCenter {
   justify-content: center;
   align-items: center;

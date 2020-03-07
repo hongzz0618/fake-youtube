@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 import youtube from "./api_youtube/youtube";
 
+import Navbar from "./Component/Navbar";
 import SearchBar from "./Component/SearchBar";
 import MainVideos from "./Component/mainVideos";
 import SearchVideos from "./Component/SearchVideos";
@@ -28,14 +29,14 @@ class App extends Component {
   }
 
   componentDidMount() {
-    this.GetYoutubeInfo("english");
+    this.GetYoutubeInfo("coronavirus");
   }
 
   async GetYoutubeInfo(searchTerm) {
     let getData = await youtube.get('search', {
       params: {
         part: "snippet",
-        key: "AIzaSyCTFfGDIZWD6NGAqJ94w9xk8ucAc9NQD44",
+        key: "AIzaSyBbI2e7ZlFTiYsiOi1WmKidfU2g9O3PaRY",
         maxResults: 30,
         q: searchTerm,
       }
@@ -59,11 +60,12 @@ class App extends Component {
     return (
       <>
 
-        <Grid container className="searchBar">
+        <Navbar />
+        {/* <Grid container className="searchBar">
           <SearchBar Submit={this.GetYoutubeInfo} />
         </Grid>
 
-        <Container maxWidth="xl" className="mainContainer">
+        <Container className="mainContainer">
 
           {noClicked ? noSearched ? <Typography variant="h5" component="h2" style={{ marginBottom: 20 }}>
             <strong>{tituloPrincipal}</strong></Typography>
@@ -81,7 +83,7 @@ class App extends Component {
                 ))}
               </Grid>}
 
-        </Container>
+        </Container> */}
 
       </>
     )
