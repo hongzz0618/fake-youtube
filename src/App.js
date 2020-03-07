@@ -61,11 +61,11 @@ class App extends Component {
       <>
 
         <Navbar />
-        {/* <Grid container className="searchBar">
+        <Grid container className="searchBar">
           <SearchBar Submit={this.GetYoutubeInfo} />
         </Grid>
 
-        <Container className="mainContainer">
+        <Container  className="mainContainer">
 
           {noClicked ? noSearched ? <Typography variant="h5" component="h2" style={{ marginBottom: 20 }}>
             <strong>{tituloPrincipal}</strong></Typography>
@@ -83,7 +83,7 @@ class App extends Component {
                 ))}
               </Grid>}
 
-        </Container> */}
+        </Container>
 
       </>
     )

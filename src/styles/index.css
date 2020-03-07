@@ -78,11 +78,12 @@ body .blueShare {
 }
 
 body .navbar {
+  margin-top: -12px;
+  z-index: 200;
   position: fixed;
   background-color: #23232e;
   -webkit-transition: width 600ms ease;
   transition: width 600ms ease;
-  top: 0;
   width: 5rem;
   height: 100vh;
 }
@@ -123,10 +124,6 @@ body .navbar-nav {
 
 body .nav-item {
   width: 100%;
-}
-
-body .nav-item:last-child {
-  margin-top: auto;
 }
 
 body .nav-link {
@@ -234,7 +231,25 @@ body .mainContainer {
 }
 
 @media only screen and (max-width: 512px) {
+  body .videoIframe {
+    max-height: 200px;
+  }
+  body .textIframe {
+    font-size: 8px !important;
+  }
+}
+
+@media only screen and (max-width: 1280px) {
+  body .logo {
+    max-width: 115px !important;
+    position: relative !important;
+    max-height: 40px !important;
+  }
+}
+
+@media only screen and (max-width: 1280px) {
   body .navbar {
+    position: fixed;
     bottom: 0;
     width: 100vw;
     height: 5rem;
@@ -258,20 +273,6 @@ body .mainContainer {
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
-  }
-  body .videoIframe {
-    max-height: 200px;
-  }
-  body .textIframe {
-    font-size: 8px !important;
-  }
-}
-
-@media only screen and (max-width: 1280px) {
-  .logo {
-    max-width: 115px !important;
-    position: relative !important;
-    max-height: 40px !important;
   }
 }
 

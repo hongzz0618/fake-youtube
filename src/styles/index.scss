@@ -66,10 +66,11 @@ body {
     color: $blueColor !important;
   }
   .navbar {
+    margin-top: -12px;
+    z-index: 200;
     position: fixed;
     background-color: $navbg-primary;
     transition: width 600ms ease;
-    top: 0;
     width: 5rem;
     height: 100vh;
     &:hover {
@@ -102,10 +103,6 @@ body {
 
   .nav-item {
     width: 100%;
-  }
-
-  .nav-item:last-child {
-    margin-top: auto;
   }
 
   .nav-link {
@@ -191,30 +188,6 @@ body {
   }
 
   @media only screen and (max-width: 512px) {
-    .navbar {
-      bottom: 0;
-      width: 100vw;
-      height: 5rem;
-      &:hover{
-        width: 100%;
-      }
-    }
-
-    .navlogo {
-      display: none !important;
-    }
-
-    .link-text {
-      display: none !important;
-    }
-    .navbar-nav {
-      flex-direction: row;
-    }
-
-    .nav-link {
-      justify-content: center;
-    }
-
     .videoIframe {
       max-height: 200px;
     }
@@ -222,13 +195,41 @@ body {
       font-size: 8px !important;
     }
   }
-}
-@media only screen and (max-width: 1280px) {
-  .logo {
-    max-width: 115px !important;
-    position: relative !important;
-    max-height: 40px !important;
+  @media only screen and (max-width: 1280px) {
+    .logo {
+      max-width: 115px !important;
+      position: relative !important;
+      max-height: 40px !important;
+    }
+  }
+  @media only screen and (max-width: 1280px) {
+    .navbar {
+      position: fixed;
+      bottom: 0;
+      width: 100vw;
+      height: 5rem;
+      &:hover {
+        width: 100%;
+      }
+    }
+    
+    .navlogo {
+      display: none !important;
+    }
+    
+    .link-text {
+      display: none !important;
+    }
+    .navbar-nav {
+      flex-direction: row;
+    }
+    
+    .nav-link {
+      justify-content: center;
+    }
+    
   }
 }
+
 
 @import "./fors";
